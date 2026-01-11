@@ -410,18 +410,30 @@ menuPages.forEach((page, idx) => {
     if (!moved && dt < 300) {
       // ignore taps that originated on interactive controls (arrows, zoom buttons)
       if (startWasInteractive) return;
-      // Toggle inline zoom class for quick in-modal zooming
+      // On small screens, open the full-screen zoom overlay instead of inline zoom
       if (img) {
-        // remove zoomed class from other pages
+        // remove zoomed class from other pages (keep clean)
         menuPages.forEach(p => {
           const otherImg = p.querySelector('img');
           if (otherImg && otherImg !== img) otherImg.classList.remove('zoomed');
         });
+
+        if (window.innerWidth <= 768) {
+          // mobile - open overlay for full-screen view
+          openZoomView(img.src);
+          return;
+        }
+
+        // desktop / tablet: toggle inline zoom class for quick in-modal zooming
         img.classList.toggle('zoomed');
         // if zoomed, prevent gallery horizontal scroll while panning inside image
+        const scrollWrap = page.querySelector('.menu-img-scroll');
         if (img.classList.contains('zoomed')) {
-          const scrollWrap = page.querySelector('.menu-img-scroll');
-          if (scrollWrap) scrollWrap.style.overflow = 'auto';
+          if (scrollWrap) scrollWrap.style.overflowY = 'auto';
+          if (menuGallery) menuGallery.style.overflowX = 'hidden';
+        } else {
+          if (scrollWrap) scrollWrap.style.overflowY = '';
+          if (menuGallery) menuGallery.style.overflowX = '';
         }
       }
     }
@@ -485,10 +497,12 @@ viewFullMenuBtn.addEventListener('click', openMenuModal);
 closeModal.addEventListener('click', closeMenuModal);
 modalBackdrop.addEventListener('click', closeMenuModal);
 
-reserveFromMenu.addEventListener('click', () => {
-  closeMenuModal();
-  setTimeout(openReservationSheet, 300);
-});
+if (reserveFromMenu) {
+  reserveFromMenu.addEventListener('click', () => {
+    closeMenuModal();
+    setTimeout(openReservationSheet, 300);
+  });
+}
 
 // ==========================
 // MENU ZOOM FUNCTIONALITY

@@ -2242,6 +2242,37 @@ button {
   text-align: center;
 }
 
+/* Mobile adjustments for menu modal */
+@media (max-width: 768px) {
+  .menu-gallery {
+    padding: 0.5rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .menu-page {
+    flex: 0 0 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .menu-page img {
+    max-height: 100vh;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* Hide inline zoom cursor hint on mobile; we use full-screen overlay */
+  .menu-page { cursor: auto; }
+  .menu-hint { display: none; }
+}
+
+/* Slightly larger inline zoom on desktop */
+@media (min-width: 769px) {
+  .menu-img-scroll img.zoomed {
+    transform: scale(1.9);
+  }
+}
+
 .theme-menu-label {
   font-size: 0.7rem;
   text-transform: uppercase;
