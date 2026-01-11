@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upper Deck KL - Premium dining experience in Kuala Lumpur. Exquisite cuisine, stunning ambiance, unforgettable moments.">
+  <meta name="keywords" content="Upper Deck KL, restaurant, Kuala Lumpur, fine dining, premium cuisine">
+  <meta name="author" content="Upper Deck KL">
+  
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Upper Deck KL - Premium Dining Experience">
+  <meta property="og:description" content="Exquisite cuisine, stunning ambiance, unforgettable moments in the heart of KL.">
+  <meta property="og:image" content="assets/images/upperdeckKLlogo.png">
+  <meta property="og:type" content="restaurant">
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Upper Deck KL",
+    "image": "assets/images/upperdeckKLlogo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kuala Lumpur",
+      "addressCountry": "MY"
+    },
+    "servesCuisine": "International",
+    "priceRange": "$$$",
+    "telephone": "+60163170924"
+  }
+  </script>
+  
+  <title>Upper Deck KL | Premium Dining Experience</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================= 
+       SCROLL PROGRESS BAR
+  ========================= -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ========================= 
+       NAVBAR - Centered Logo
+  ========================= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#signature" class="nav-link">Menu</a>
+    </div>
+    
+    <a href="#" class="nav-logo">
+      <img src="assets/images/upperdeckKLlogo.png" alt="Upper Deck KL Logo">
+    </a>
+    
+    <div class="nav-right">
+      <a href="#vibe" class="nav-link">Gallery</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    
+    <!-- Mobile Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#signature" class="mobile-link">Menu</a>
+      <a href="#vibe" class="mobile-link">Gallery</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <div class="mobile-status" id="mobileStatus"></div>
+    </div>
+  </nav>
+
+  <!-- ========================= 
+       HERO SECTION
+  ========================= -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/video/UDvideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <img src="assets/images/upperdeckKLlogo.png" alt="Upper Deck KL" class="hero-logo">
+      <p class="hero-tagline">Premium Dining Experience</p>
+      
+      <!-- Live Open/Closed Status -->
+      <div class="live-status" id="liveStatus">
+        <span class="status-dot"></span>
+        <span class="status-text">Checking...</span>
+      </div>
+      
+      <div class="hero-ctas">
+        <button class="btn-primary btn-glow" id="open-reservation-hero">
+          <i class="fas fa-calendar-alt"></i> Reserve a Table
+        </button>
+        <button class="btn-outline" id="open-menu-btn">
+          <i class="fas fa-utensils"></i> View Menu
+        </button>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       ABOUT SECTION
+  ========================= -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content fade-in-up">
+        <span class="section-label">Welcome to</span>
+        <h2 class="section-title">Upper Deck KL</h2>
+        <div class="divider-gold"></div>
+        <p class="about-text">
+          Perched above the vibrant heart of Kuala Lumpur, Upper Deck KL offers an 
+          unparalleled dining experience where exquisite cuisine meets stunning ambiance. 
+          Our passionate chefs craft each dish with precision, using only the finest 
+          ingredients to create memorable culinary moments.
+        </p>
+        <p class="about-text">
+          Whether you're celebrating a special occasion or seeking an intimate dinner, 
+          our elegant space and attentive service ensure every visit becomes an 
+          unforgettable journey for your senses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       SIGNATURE DISHES
+  ========================= -->
+  <section class="signature" id="signature">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-label">Our Specialties</span>
+        <h2 class="section-title">Signature Plates</h2>
+        <div class="divider-gold"></div>
+      </div>
+      
+      <div class="dish-grid">
+        <article class="dish-card fade-in-up" data-delay="0">
+          <div class="dish-image-wrapper">
+            <img src="assets/images/dishes/argentinasirloin.png" alt="Argentina Sirloin" loading="lazy">
+            <div class="dish-overlay">
+              <span class="dish-tag">Chef's Pick</span>
+            </div>
+          </div>
+          <div class="dish-info">
+            <h3>Argentina Sirloin</h3>
+            <p>Premium cut, perfectly grilled to your preference</p>
+          </div>
+        </article>
+        
+        <article class="dish-card fade-in-up" data-delay="100">
+          <div class="dish-image-wrapper">
+            <img src="assets/images/dishes/unagipasta.png" alt="Unagi Pasta" loading="lazy">
+            <div class="dish-overlay">
+              <span class="dish-tag">Popular</span>
+            </div>
+          </div>
+          <div class="dish-info">
+            <h3>Unagi Pasta</h3>
+            <p>Japanese eel with house-made pasta</p>
+          </div>
+        </article>
+        
+        <article class="dish-card fade-in-up" data-delay="200">
+          <div class="dish-image-wrapper">
+            <img src="assets/images/dishes/fishnchips.png" alt="Fish & Chips" loading="lazy">
+            <div class="dish-overlay">
+              <span class="dish-tag">Classic</span>
+            </div>
+          </div>
+          <div class="dish-info">
+            <h3>Fish & Chips</h3>
+            <p>Beer-battered with truffle aioli</p>
+          </div>
+        </article>
+        
+        <article class="dish-card fade-in-up" data-delay="300">
+          <div class="dish-image-wrapper">
+            <img src="assets/images/dishes/calamansitart.png" alt="Calamansi Tart" loading="lazy">
+            <div class="dish-overlay">
+              <span class="dish-tag">Dessert</span>
+            </div>
+          </div>
+          <div class="dish-info">
+            <h3>Calamansi Tart</h3>
+            <p>Local citrus, buttery crust, torched meringue</p>
+          </div>
+        </article>
+      </div>
+      
+      <div class="section-cta fade-in-up">
+        <button class="btn-accent btn-lg" id="view-full-menu">
+          <i class="fas fa-book-open"></i> Explore Full Menu
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       PARALLAX VIBE SECTION
+  ========================= -->
+  <section class="vibe-section" id="vibe">
+    <div class="parallax-bg" style="background-image: url('assets/images/interior/interior1.jpg')"></div>
+    <div class="vibe-overlay"></div>
+    <div class="vibe-content fade-in">
+      <span class="section-label light">Experience</span>
+      <h2 class="section-title light">The Atmosphere</h2>
+      <div class="divider-gold"></div>
+      <p class="vibe-text">
+        Where sophistication meets comfort. Our space is designed to create 
+        the perfect backdrop for your most cherished moments.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       INTERIOR GALLERY
+  ========================= -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-label">Visual Journey</span>
+        <h2 class="section-title">Our Space</h2>
+        <div class="divider-gold"></div>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item large fade-in-up">
+          <img src="assets/images/interior/tablesinterior.jpg" alt="Interior" loading="lazy">
+        </div>
+        <div class="gallery-item fade-in-up" data-delay="100">
+          <img src="assets/images/interior/interior2.jpg" alt="Dining Area" loading="lazy">
+        </div>
+        <div class="gallery-item fade-in-up" data-delay="200">
+          <img src="assets/images/interior/wildwestinterior.jpg" alt="Wild West Theme" loading="lazy">
+        </div>
+        <div class="gallery-item fade-in-up" data-delay="300">
+          <img src="assets/images/interior/engagementinterior.jpg" alt="Special Events" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       INSTAGRAM FEED (FAKE FOR PRESENTATION)
+  ========================= -->
+  <section class="instagram-section" id="instagram">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-label">Follow Us</span>
+        <h2 class="section-title"><i class="fab fa-instagram"></i> @upperdeck.kl</h2>
+        <div class="divider-gold"></div>
+      </div>
+      
+      <div class="insta-grid">
+        <div class="insta-item fade-in-up">
+          <img src="assets/images/dishes/argentinasirloin.png" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 234
+          </div>
+        </div>
+        <div class="insta-item fade-in-up" data-delay="50">
+          <img src="assets/images/interior/interior1.jpg" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 189
+          </div>
+        </div>
+        <div class="insta-item fade-in-up" data-delay="100">
+          <img src="assets/images/dishes/unagipasta.png" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 312
+          </div>
+        </div>
+        <div class="insta-item fade-in-up" data-delay="150">
+          <img src="assets/images/interior/tablesinterior.jpg" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 276
+          </div>
+        </div>
+        <div class="insta-item fade-in-up" data-delay="200">
+          <img src="assets/images/dishes/fishnchips.png" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 198
+          </div>
+        </div>
+        <div class="insta-item fade-in-up" data-delay="250">
+          <img src="assets/images/dishes/calamansitart.png" alt="Instagram Post" loading="lazy">
+          <div class="insta-overlay">
+            <i class="fas fa-heart"></i> 267
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       TESTIMONIALS CAROUSEL
+  ========================= -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <span class="section-label">What People Say</span>
+        <h2 class="section-title">Guest Reviews</h2>
+        <div class="divider-gold"></div>
+      </div>
+      
+      <div class="testimonial-carousel fade-in-up">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card active">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Absolutely stunning experience! The Argentina Sirloin was cooked to perfection. The ambiance made our anniversary dinner truly special."</p>
+            <div class="testimonial-author">
+              <span class="author-name">Sarah M.</span>
+              <span class="author-date">December 2025</span>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The Unagi Pasta is a must-try! Service was impeccable and the staff made us feel like VIPs. Will definitely return."</p>
+            <div class="testimonial-author">
+              <span class="author-name">James L.</span>
+              <span class="author-date">November 2025</span>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="testimonial-text">"Perfect spot for business dinners. The private area offered great ambiance and the calamansi tart was the perfect ending."</p>
+            <div class="testimonial-author">
+              <span class="author-name">Amanda K.</span>
+              <span class="author-date">October 2025</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-nav">
+          <button class="testimonial-btn prev" id="prevTestimonial" aria-label="Previous review">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots"></div>
+          <button class="testimonial-btn next" id="nextTestimonial" aria-label="Next review">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="add-review-cta fade-in-up">
+        <p>Enjoyed your visit?</p>
+        <a href="#" class="btn-outline-dark" id="addReviewBtn">
+          <i class="fas fa-pen"></i> Share Your Experience
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       LOCATION / MINI MAP
+  ========================= -->
+  <section class="location" id="contact">
+    <div class="container">
+      <div class="location-wrapper">
+        <div class="location-info fade-in-up">
+          <span class="section-label">Find Us</span>
+          <h2 class="section-title">Visit Upper Deck KL</h2>
+          <div class="divider-gold"></div>
+          
+          <div class="info-blocks">
+            <div class="info-block">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Kuala Lumpur, Malaysia</p>
+              </div>
+            </div>
+            
+            <div class="info-block">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Hours</h4>
+                <p>Tue - Sun: 12:00 PM - 11:00 PM</p>
+                <p class="text-muted">Closed on Mondays</p>
+              </div>
+            </div>
+            
+            <div class="info-block">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Contact</h4>
+                <!-- TODO: Change this to the actual restaurant number -->
+                <a href="https://wa.me/60163170924" class="contact-link">+60 16-317 0924</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="direction-buttons">
+            <a href="https://maps.app.goo.gl/rAPFJxyUnQgdP85DA" target="_blank" rel="noopener" class="btn-direction google">
+              <i class="fab fa-google"></i> Google Maps
+            </a>
+            <a href="https://www.waze.com/en-GB/live-map/directions?to=ll.3.140781%2C101.698101" target="_blank" rel="noopener" class="btn-direction waze">
+              <i class="fab fa-waze"></i> Waze
+            </a>
+          </div>
+        </div>
+        
+        <div class="mini-map fade-in-up" data-delay="200">
+          <div class="map-container">
+            <div class="map-placeholder">
+              <img src="assets/images/interior/interior1.jpg" alt="Location Preview" class="map-bg">
+              <div class="map-overlay-gradient"></div>
+              <div class="location-pin">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="pin-pulse"></div>
+              </div>
+              <div class="map-label">
+                <span>Upper Deck KL</span>
+                <small>Kuala Lumpur</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 
+       FOOTER
+  ========================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand fade-in-up">
+          <img src="assets/images/upperdeckKLlogo.png" alt="Upper Deck KL" class="footer-logo">
+          <p class="footer-tagline">Premium Dining Experience</p>
+        </div>
+        
+        <div class="footer-links fade-in-up" data-delay="100">
+          <h4>Quick Links</h4>
+          <a href="#about">About Us</a>
+          <a href="#signature">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="footer-social fade-in-up" data-delay="200">
+          <h4>Connect With Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <!-- TODO: Change this to the actual restaurant number -->
+            <a href="https://wa.me/60163170924" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Review Prompt -->
+      <div class="review-prompt fade-in-up">
+        <div class="review-prompt-content">
+          <i class="fas fa-star"></i>
+          <p>Loved your experience? Help us grow by leaving a review!</p>
+          <a href="https://maps.app.goo.gl/rAPFJxyUnQgdP85DA" target="_blank" rel="noopener" class="btn-review">
+            <i class="fab fa-google"></i> Leave a Review
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Upper Deck KL. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================= 
+       FLOATING RESERVATION BUTTON (Mobile)
+  ========================= -->
+  <button class="floating-reserve" id="floatingReserve" aria-label="Reserve a table">
+    <i class="fas fa-calendar-plus"></i>
+    <span>Reserve</span>
+  </button>
+
+  <!-- ========================= 
+       RESERVATION BOTTOM SHEET
+  ========================= -->
+  <div class="reservation-sheet" id="reservationSheet">
+    <div class="sheet-backdrop" id="sheetBackdrop"></div>
+    <div class="sheet-content">
+      <div class="sheet-handle"></div>
+      
+      <div class="sheet-header">
+        <h3>Reserve Your Table</h3>
+        <button class="sheet-close" id="closeSheet" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form class="reservation-form" id="reservationForm">
+        <!-- Step 1: Occasion -->
+        <div class="form-step active" data-step="1">
+          <label class="form-label">What's the occasion?</label>
+          <div class="occasion-grid">
+            <button type="button" class="occasion-btn" data-occasion="Casual Dining">
+              <i class="fas fa-utensils"></i>
+              <span>Casual Dining</span>
+            </button>
+            <button type="button" class="occasion-btn" data-occasion="Birthday">
+              <i class="fas fa-birthday-cake"></i>
+              <span>Birthday</span>
+            </button>
+            <button type="button" class="occasion-btn" data-occasion="Anniversary">
+              <i class="fas fa-heart"></i>
+              <span>Anniversary</span>
+            </button>
+            <button type="button" class="occasion-btn" data-occasion="Business">
+              <i class="fas fa-briefcase"></i>
+              <span>Business</span>
+            </button>
+            <button type="button" class="occasion-btn" data-occasion="Date Night">
+              <i class="fas fa-wine-glass-alt"></i>
+              <span>Date Night</span>
+            </button>
+            <button type="button" class="occasion-btn" data-occasion="Other">
+              <i class="fas fa-star"></i>
+              <span>Other</span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Step 2: Details -->
+        <div class="form-step" data-step="2">
+          <div class="form-group">
+            <label class="form-label" for="guestName">Your Name</label>
+            <input type="text" id="guestName" name="name" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="guestCount">Guests</label>
+              <select id="guestCount" name="guests" required>
+                <option value="">Select</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+                <option value="7-10">7-10 Guests</option>
+                <option value="10+">10+ Guests</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="reserveDate">Date</label>
+              <input type="date" id="reserveDate" name="date" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="reserveTime">Preferred Time</label>
+            <select id="reserveTime" name="time" required>
+              <option value="">Select time</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="12:30 PM">12:30 PM</option>
+              <option value="1:00 PM">1:00 PM</option>
+              <option value="1:30 PM">1:30 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="6:00 PM">6:00 PM</option>
+              <option value="6:30 PM">6:30 PM</option>
+              <option value="7:00 PM">7:00 PM</option>
+              <option value="7:30 PM">7:30 PM</option>
+              <option value="8:00 PM">8:00 PM</option>
+              <option value="8:30 PM">8:30 PM</option>
+              <option value="9:00 PM">9:00 PM</option>
+              <option value="9:30 PM">9:30 PM</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="specialRequests">Special Requests (Optional)</label>
+            <textarea id="specialRequests" name="requests" placeholder="Any dietary requirements or special requests?"></textarea>
+          </div>
+          
+          <div class="form-nav">
+            <button type="button" class="btn-back" id="backToStep1">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="submit" class="btn-primary btn-submit">
+              <i class="fab fa-whatsapp"></i> Reserve via WhatsApp
+            </button>
+          </div>
+        </div>
+      </form>
+      
+      <!-- Success State -->
+      <div class="reservation-success" id="reservationSuccess">
+        <div class="success-animation">
+          <div class="sparkle-container" id="sparkleContainer"></div>
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Redirecting to WhatsApp!</h3>
+        <p>Complete your reservation by sending the message.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= 
+       MENU MODAL
+  ========================= -->
+  <div class="menu-modal" id="menuModal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content menu-gallery-modal">
+      <button class="modal-close" id="closeModal" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-header">
+        <img src="assets/images/upperdeckKLlogo.png" alt="Upper Deck KL" class="modal-logo">
+        <h2>Our Menu</h2>
+        <div class="divider-gold"></div>
+        <p class="menu-hint"><i class="fas fa-search-plus"></i> Tap or click to zoom</p>
+      </div>
+      
+      <div class="menu-gallery">
+        <div class="menu-page" data-page="1">
+          <div class="menu-img-scroll">
+            <img src="assets/images/menu/UD Ala Carte Menu-1.png" alt="Menu Page 1" loading="lazy">
+          </div>
+          <button class="menu-arrow next" aria-label="Next page" tabindex="0">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button class="menu-zoom-btn" aria-label="Zoom menu" tabindex="0">
+            <i class="fas fa-search-plus"></i>
+          </button>
+        </div>
+        <div class="menu-page" data-page="2">
+          <div class="menu-img-scroll">
+            <img src="assets/images/menu/UD Ala Carte Menu-2.png" alt="Menu Page 2" loading="lazy">
+          </div>
+          <button class="menu-arrow prev" aria-label="Previous page" tabindex="0">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="menu-zoom-btn" aria-label="Zoom menu" tabindex="0">
+            <i class="fas fa-search-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="menu-scroll-hint">
+        <i class="fas fa-arrows-alt-v"></i> Scroll down to view full menu
+      </div>
+      
+      <div class="menu-nav">
+        <button class="menu-nav-btn" id="prevMenuPage" aria-label="Previous page">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="menu-page-indicator">
+          <span id="currentPage">1</span> / <span id="totalPages">2</span>
+        </div>
+        <button class="menu-nav-btn" id="nextMenuPage" aria-label="Next page">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-primary" id="reserveFromMenu">
+          <i class="fas fa-calendar-alt"></i> Reserve a Table
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= 
+       MENU ZOOM OVERLAY
+  ========================= -->
+  <div class="menu-zoom-overlay" id="menuZoomOverlay">
+    <button class="zoom-close" id="zoomClose" aria-label="Close zoom">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="zoom-controls">
+      <button class="zoom-btn" id="zoomOut" aria-label="Zoom out">
+        <i class="fas fa-minus"></i>
+      </button>
+      <span class="zoom-level" id="zoomLevel">100%</span>
+      <button class="zoom-btn" id="zoomIn" aria-label="Zoom in">
+        <i class="fas fa-plus"></i>
+      </button>
+      <button class="zoom-btn" id="zoomReset" aria-label="Reset zoom">
+        <i class="fas fa-undo"></i>
+      </button>
+    </div>
+    <div class="zoom-container" id="zoomContainer">
+      <img src="" alt="Menu zoomed" id="zoomedImage">
+    </div>
+    <div class="zoom-hint">
+      <i class="fas fa-hand-pointer"></i> Drag to pan • Pinch or scroll to zoom
+    </div>
+  </div>
+
+  <!-- ========================= 
+       ADD REVIEW MODAL
+  ========================= -->
+  <div class="review-modal" id="reviewModal">
+    <div class="modal-backdrop" id="reviewBackdrop"></div>
+    <div class="modal-content small">
+      <button class="modal-close" id="closeReviewModal" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-header">
+        <h2>Share Your Experience</h2>
+        <div class="divider-gold"></div>
+      </div>
+      
+      <form class="review-form" id="reviewForm">
+        <div class="form-group">
+          <label class="form-label">Your Rating</label>
+          <div class="star-rating" id="starRating">
+            <i class="far fa-star" data-rating="1"></i>
+            <i class="far fa-star" data-rating="2"></i>
+            <i class="far fa-star" data-rating="3"></i>
+            <i class="far fa-star" data-rating="4"></i>
+            <i class="far fa-star" data-rating="5"></i>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="reviewerName">Your Name</label>
+          <input type="text" id="reviewerName" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="reviewText">Your Review</label>
+          <textarea id="reviewText" placeholder="Tell us about your experience..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary btn-full">
+          <i class="fas fa-paper-plane"></i> Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================= 
+       THEME TOGGLE
+  ========================= -->
+  <div class="theme-toggle-wrapper">
+    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Change theme">
+      <i class="fas fa-palette"></i>
+    </button>
+    <div class="theme-menu" id="themeMenu">
+      <div class="theme-menu-label">Theme</div>
+      <button class="theme-option active" data-theme="light">
+        <i class="fas fa-sun"></i> Light
+      </button>
+      <button class="theme-option" data-theme="dark">
+        <i class="fas fa-moon"></i> Dark
+      </button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
