@@ -124,12 +124,16 @@ function updateLiveStatus() {
   const minutes = now.getMinutes();
   const currentTime = hours * 60 + minutes;
   
-  // Restaurant hours: Tue-Sun 12:00 PM - 11:00 PM (Closed Monday)
-  const openTime = 12 * 60; // 12:00 PM in minutes
-  const closeTime = 23 * 60; // 11:00 PM in minutes
+  // Restaurant hours: Tue-Sun 11:00 AM - 3:00 PM and 5:30 PM - 10:00 PM (Closed Monday)
+  const lunchOpen = 11 * 60; // 11:00 AM in minutes
+  const lunchClose = 15 * 60; // 3:00 PM in minutes
+  const dinnerOpen = 17 * 60 + 30; // 5:30 PM in minutes
+  const dinnerClose = 22 * 60; // 10:00 PM in minutes
   
   const isClosed = day === 1; // Monday
-  const isOpen = !isClosed && currentTime >= openTime && currentTime < closeTime;
+  const isLunchTime = !isClosed && currentTime >= lunchOpen && currentTime < lunchClose;
+  const isDinnerTime = !isClosed && currentTime >= dinnerOpen && currentTime < dinnerClose;
+  const isOpen = isLunchTime || isDinnerTime;
   
   const statusDot = liveStatus.querySelector('.status-dot');
   const statusText = liveStatus.querySelector('.status-text');
@@ -141,20 +145,31 @@ function updateLiveStatus() {
   } else if (isOpen) {
     liveStatus.classList.remove('closed');
     liveStatus.classList.add('open');
-    const closesIn = closeTime - currentTime;
+    let closesIn;
+    if (isLunchTime) {
+      closesIn = lunchClose - currentTime;
+    } else {
+      closesIn = dinnerClose - currentTime;
+    }
     const closesHours = Math.floor(closesIn / 60);
     const closesMinutes = closesIn % 60;
     statusText.textContent = `Open · Closes in ${closesHours}h ${closesMinutes}m`;
   } else {
     liveStatus.classList.remove('open');
     liveStatus.classList.add('closed');
-    if (currentTime < openTime) {
-      const opensIn = openTime - currentTime;
+    // Determine next opening time
+    if (currentTime < lunchOpen) {
+      const opensIn = lunchOpen - currentTime;
+      const opensHours = Math.floor(opensIn / 60);
+      const opensMinutes = opensIn % 60;
+      statusText.textContent = `Opens in ${opensHours}h ${opensMinutes}m`;
+    } else if (currentTime < dinnerOpen) {
+      const opensIn = dinnerOpen - currentTime;
       const opensHours = Math.floor(opensIn / 60);
       const opensMinutes = opensIn % 60;
       statusText.textContent = `Opens in ${opensHours}h ${opensMinutes}m`;
     } else {
-      statusText.textContent = 'Closed · Opens tomorrow at 12 PM';
+      statusText.textContent = 'Closed · Opens tomorrow at 11 AM';
     }
   }
   
@@ -321,6 +336,16 @@ const currentPageSpan = document.getElementById('currentPage');
 const totalPagesSpan = document.getElementById('totalPages');
 const menuArrows = document.querySelectorAll('.menu-arrow');
 const menuZoomBtns = document.querySelectorAll('.menu-zoom-btn');
+
+// Zoom Overlay
+const menuZoomOverlay = document.getElementById('menuZoomOverlay');
+const zoomClose = document.getElementById('zoomClose');
+const zoomIn = document.getElementById('zoomIn');
+const zoomOut = document.getElementById('zoomOut');
+const zoomReset = document.getElementById('zoomReset');
+const zoomContainer = document.getElementById('zoomContainer');
+const zoomedImage = document.getElementById('zoomedImage');
+const zoomLevelSpan = document.getElementById('zoomLevel');
 
 function openMenuModal() {
   menuModal.classList.add('active');
@@ -503,6 +528,36 @@ if (reserveFromMenu) {
     setTimeout(openReservationSheet, 300);
   });
 }
+
+// ==========================
+// HAMBURGER MENU
+// ==========================
+function toggleMobileMenu() {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+}
+
+function closeMobileMenu() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Hamburger button click
+hamburger.addEventListener('click', toggleMobileMenu);
+
+// Close mobile menu when clicking on links
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.hamburger') && !e.target.closest('.mobile-menu')) {
+    closeMobileMenu();
+  }
+});
 
 // ==========================
 // MENU ZOOM FUNCTIONALITY
