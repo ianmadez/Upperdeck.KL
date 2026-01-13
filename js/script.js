@@ -350,12 +350,25 @@ const zoomLevelSpan = document.getElementById('zoomLevel');
 function openMenuModal() {
   menuModal.classList.add('active');
   document.body.style.overflow = 'hidden';
+  
+  // Prevent background scrolling
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100%';
+  document.body.style.top = `-${window.scrollY}px`;
+  
   updateMenuNav();
 }
 
 function closeMenuModal() {
   menuModal.classList.remove('active');
   document.body.style.overflow = '';
+  
+  // Restore scroll position
+  const scrollY = document.body.style.top;
+  document.body.style.position = '';
+  document.body.style.width = '';
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 }
 
 function updateMenuNav() {
@@ -449,17 +462,8 @@ menuPages.forEach((page, idx) => {
           return;
         }
 
-        // desktop / tablet: toggle inline zoom class for quick in-modal zooming
-        img.classList.toggle('zoomed');
-        // if zoomed, prevent gallery horizontal scroll while panning inside image
-        const scrollWrap = page.querySelector('.menu-img-scroll');
-        if (img.classList.contains('zoomed')) {
-          if (scrollWrap) scrollWrap.style.overflowY = 'auto';
-          if (menuGallery) menuGallery.style.overflowX = 'hidden';
-        } else {
-          if (scrollWrap) scrollWrap.style.overflowY = '';
-          if (menuGallery) menuGallery.style.overflowX = '';
-        }
+        // desktop: cycle to next page instead of zooming
+        goToMenuPage((idx + 1) % menuPages.length);
       }
     }
   });
