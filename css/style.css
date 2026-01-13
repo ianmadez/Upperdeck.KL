@@ -1697,6 +1697,24 @@ button {
   border: 1px solid var(--border-subtle);
 }
 
+/* Mobile modal adjustments */
+@media (max-width: 768px) {
+  .menu-modal,
+  .review-modal {
+    padding: 0.5rem;
+  }
+  
+  .modal-content {
+    max-height: 95vh;
+    border-radius: var(--radius-md);
+  }
+  
+  .menu-gallery-modal {
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
 .modal-content.small {
   max-width: 500px;
 }
