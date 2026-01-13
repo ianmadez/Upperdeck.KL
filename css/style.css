@@ -291,13 +291,13 @@ button {
 }
 
 .nav-logo img {
-  height: 60px;
+  height: 80px;
   width: auto;
   transition: var(--transition-base);
 }
 
 .navbar.scrolled .nav-logo img {
-  height: 50px;
+  height: 60px;
 }
 
 /* Hamburger Menu */
